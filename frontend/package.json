@@ -3,10 +3,11 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "dev-ssl": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
+    "dev-ssl": "set NODE_TLS_REJECT_UNAUTHORIZED=0 && nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "stackblitz": "npm run dev"
+    "stackblitz": "npm run dev",
+    "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert key.pem --key cert.pem"
   },
   "stackblitz": {
     "startCommand": "npm run stackblitz"
@@ -14,6 +15,12 @@
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@storyblok/nuxt": "^6.0.4",
-    "nuxt": "^3.10.2"
+    "@unocss/nuxt": "^66.1.0-beta.7",
+    "nuxt": "^3.10.2",
+    "unocss": "^66.1.0-beta.7"
+  },
+  "dependencies": {
+    "proxy": "^2.2.0",
+    "vue-i18n": "^11.1.2"
   }
 }
