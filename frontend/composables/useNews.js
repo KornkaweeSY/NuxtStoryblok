@@ -25,7 +25,7 @@ export function useNews() {
             if (data) state.all_news = data.stories;
             state.total = data.total;
         } catch (error) {
-            console.error('Error fetching news:', error);
+            // console.error('Error fetching news:', error);
         } finally {
             state.loading = false;
         }

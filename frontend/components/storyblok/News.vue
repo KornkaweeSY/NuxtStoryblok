@@ -20,7 +20,6 @@ import { onMounted } from 'vue';
 import { useNews } from '~/composables/useNews'; // นำเข้า useNews
 
 const { all_news, fetchNews, loading } = useNews();  // เรียกใช้ composable ที่สร้างไว้
-console.log(useNews());
 
 onMounted(() => {
     fetchNews(); // ดึงข้อมูลเมื่อ component ถูก mounted
